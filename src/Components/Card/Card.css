@@ -1,0 +1,40 @@
+.scene{
+    height: 200px;
+    width: 150px;
+    perspective: 600px;
+    margin: 10px;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 0.5em;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.card.flipped{
+    transform: rotateY(180deg);
+}
+.cardFace {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+    border-style: solid;
+    border-width: thin;
+    border-color: rgb(184, 184, 184);
+}
+
+.front{
+    background: linear-gradient(45deg,#80ffff, #00ffff, #00ffff);
+    border-radius: 0.5em;
+}
+
+.back{
+    transform: rotateY(180deg);
+    background: cyan;
+    border-radius: 0.5em;
+}
