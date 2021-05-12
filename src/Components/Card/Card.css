@@ -51,7 +51,7 @@
 .front{
     background: rgb(240, 248, 250);
     /* linear-gradient(45deg,#80ffff, #00ffff, #00ffff); */
-    border-radius: 0.5em;
+    border-radius: 10px;
 }
 
 .frontContainer{
@@ -63,11 +63,11 @@
 
 .back{
     transform: rotateY(180deg);
-    background: cyan;
-    border-radius: 0.5em;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgb(240, 248, 250);
 }
 
 .characterImg{
@@ -76,7 +76,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    border-radius: 0.5em;
+    border-radius: 10px;
     object-fit: cover;
 }
 
@@ -96,5 +96,8 @@
     color: rgba(13, 14, 75, 0.938);
     background-color: aliceblue;
     padding: 3px 10px 3px 10px;
-    border-radius: 0 0.5em 0 0.5em;
+    border-radius: 0 10px 0 10px;
+    border-style: solid;
+    border-width: thin thin 0 0;
+    border-color: rgba(13, 14, 75, 0.938);
 }
