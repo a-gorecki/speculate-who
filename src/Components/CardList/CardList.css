@@ -1,0 +1,60 @@
+.cardList {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px;
+    grid-template-rows: 200px 200px 200px 200px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-items: stretch;
+    align-items: stretch;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1030px) {
+    .cardList {
+        display: grid;
+        grid-template-columns: 150px 150px 150px 150px 150px;
+        grid-template-rows: 200px 200px 200px 200px 200px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        justify-items: stretch;
+        align-items: stretch;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .cardList {
+        display: grid;
+        grid-template-columns: 150px 150px 150px 150px;
+        grid-template-rows: 200px 200px 200px 200px 200px 200px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        justify-items: stretch;
+        align-items: stretch;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .cardList {
+        display: grid;
+        grid-template-columns: 75px 75px 75px 75px;
+        grid-template-rows: 100px 100px 100px 100px 100px 100px 100px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        justify-items: stretch;
+        align-items: stretch;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .cardList {
+        display: grid;
+        grid-template-columns: 60px 60px 60px 60px;
+        grid-template-rows: 80px 80px 80px 80px 80px 80px 80px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        justify-items: stretch;
+        align-items: stretch;
+    }
+}

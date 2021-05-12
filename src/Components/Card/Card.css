@@ -5,6 +5,26 @@
     margin: 10px;
 }
 
+@media screen and (max-width: 710px) {
+    .scene{
+        height: 100px;
+        width: 75px;
+        perspective: 600px;
+        margin: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 330px) {
+    .scene{
+        height: 80px;
+        width: 60px;
+        perspective: 600px;
+        margin: 10px;
+    }
+    
+}
+
 .card {
     position: relative;
     height: 100%;
