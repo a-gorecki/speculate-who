@@ -52,7 +52,9 @@
     background: rgb(240, 248, 250);
     /* linear-gradient(45deg,#80ffff, #00ffff, #00ffff); */
     border-radius: 10px;
+    /* not sure which class needs this specified again, hence the repetition */
     -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
 
 .frontContainer{
@@ -60,7 +62,9 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    /* not sure which class needs this specified again, hence the repetition */
     -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
 
 .back{
@@ -80,7 +84,9 @@
     width: 100%;
     border-radius: 10px;
     object-fit: cover;
+    /* not sure which class needs this specified again, hence the repetition */
     -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
 
 .logo{
@@ -103,5 +109,7 @@
     border-style: solid;
     border-width: thin thin 0 0;
     border-color: rgba(13, 14, 75, 0.938);
+    /* not sure which class needs this specified again, hence the repetition */
     -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
