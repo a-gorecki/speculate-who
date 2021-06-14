@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CardList } from "../CardList/CardList";
 import "./GameBoard.css";
-import { Card } from "../Card/Card";
 import { PlayerCardArea } from "../PlayerCardArea/PlayerCardArea";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";

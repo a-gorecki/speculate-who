@@ -1,7 +1,5 @@
 import "./App.css";
-import { Card } from "../Card/Card";
 import React, { useState } from "react";
-import { CardList } from "../CardList/CardList";
 import { board as defaultBoard } from "../../Data/dragRaceBoard";
 import { Menu } from "../Menu/Menu";
 import { GameBoard } from "../GameBoard/GameBoard";
