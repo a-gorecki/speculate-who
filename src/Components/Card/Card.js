@@ -1,40 +1,51 @@
 import React from "react";
-import "./Card.css"
-import logo from "./logo.png"
+import "./Card.css";
+import logo from "./logo.png";
 
-export class Card extends React.Component{
+export class Card extends React.Component {
+    constructor(props) {
+        super(props);
 
-    constructor(props){
-        super(props)
+        this.state = { flipped: false };
 
-        this.state = {flipped: false}
-        
-        this.handleFlip = this.handleFlip.bind(this)
+        this.handleFlip = this.handleFlip.bind(this);
     }
 
-    handleFlip(){
-        this.setState({flipped: this.state.flipped ? false : true})
+    handleFlip() {
+        console.log(this.props.key);
+        this.props.onFlip(this.props.index);
     }
 
-
-    render(){
-        return(
+    render() {
+        return (
             <div className="scene">
-                <div className={this.state.flipped ? "card flipped" : "card"} id="cardClick" onClick={this.handleFlip}>
-                    
+                <div
+                    className={
+                        !!this.props.person.flipped && !!this.props.canFlip
+                            ? "card flipped"
+                            : "card"
+                    }
+                    id="cardClick"
+                    onClick={!!this.props.canFlip ? this.handleFlip : () => {}}
+                >
                     <div className="cardFace front">
                         <div className="frontContainer">
-                            <img className="characterImg" src={this.props.person.imgSrc} alt={this.props.person.name} />
-                            <div className="characterName" ><strong>{this.props.person.name}</strong></div>
+                            <img
+                                className="characterImg"
+                                src={this.props.person.imgSrc}
+                                alt={this.props.person.name}
+                            />
+                            <div className="characterName">
+                                <strong>{this.props.person.name}</strong>
+                            </div>
                         </div>
-                        
                     </div>
 
                     <div className="cardFace back">
-                        <img src={logo} className="logo" alt="Speculate who!"/>
+                        <img src={logo} className="logo" alt="Speculate who!" />
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }

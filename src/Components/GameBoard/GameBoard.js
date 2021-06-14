@@ -6,7 +6,7 @@ import { PlayerCardArea } from "../PlayerCardArea/PlayerCardArea";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
-export function GameBoard({ people }) {
+export function GameBoard({ people, onFlip, handleBoardReset }) {
     const [width, setWidth] = useState(window.innerWidth);
     const [btmSheetOpen, setBtmSheetOpen] = useState(false);
     const [currentCardIndex, setCurrentCardIndex] = useState(
@@ -22,9 +22,8 @@ export function GameBoard({ people }) {
             );
     });
 
-    const handleCardReset = () => {
+    const handleCardReset = () =>
         setCurrentCardIndex(Math.floor(Math.random() * people.length));
-    };
 
     const getLayout = (width) => {
         if (width < 1000) {
@@ -36,7 +35,7 @@ export function GameBoard({ people }) {
                     >
                         Show your card
                     </button>
-                    <CardList people={people} />
+                    <CardList people={people} onFlip={onFlip} />
                     <BottomSheet
                         open={btmSheetOpen}
                         onDismiss={() => setBtmSheetOpen(false)}
@@ -44,6 +43,7 @@ export function GameBoard({ people }) {
                         <PlayerCardArea
                             person={people[currentCardIndex]}
                             onCardReset={handleCardReset}
+                            onBoardReset={handleBoardReset}
                         />
                     </BottomSheet>
                 </div>
@@ -52,12 +52,13 @@ export function GameBoard({ people }) {
         return (
             <div className="gameAreaDesktop">
                 <div>
-                    <CardList people={people} />
+                    <CardList people={people} onFlip={onFlip} />
                 </div>
                 <div className="playerCardContainer">
                     <PlayerCardArea
                         person={people[currentCardIndex]}
                         onCardReset={handleCardReset}
+                        onBoardReset={handleBoardReset}
                     />
                 </div>
             </div>

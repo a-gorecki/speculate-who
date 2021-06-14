@@ -15,8 +15,29 @@ export function App() {
 
     let currentScreen;
 
+    const handleFlip = (index) => {
+        let newArray = [...board];
+        newArray[index].flipped = !!newArray[index].flipped ? false : true;
+
+        setBoard(newArray);
+    };
+
+    const handleBoardReset = () => {
+        let newArray = [...board];
+        newArray.forEach((person) => (person.flipped = false));
+        console.log("Reset");
+
+        setBoard(newArray);
+    };
+
     if (showBoard) {
-        currentScreen = <GameBoard people={board} />;
+        currentScreen = (
+            <GameBoard
+                people={board}
+                onFlip={handleFlip}
+                handleBoardReset={handleBoardReset}
+            />
+        );
     } else {
         currentScreen = <Menu />;
     }

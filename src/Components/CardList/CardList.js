@@ -1,21 +1,21 @@
 import React from "react";
-import {Card} from "../Card/Card"
-import "./CardList.css"
+import { Card } from "../Card/Card";
+import "./CardList.css";
 
-
-
-export class CardList extends React.Component{
-
-
-    render(){
-        return(
+export class CardList extends React.Component {
+    render() {
+        return (
             <div className="cardList">
-
-                {
-                    this.props.people.map((person, index) => <Card person={person} key={index}/>)
-                }
-
+                {this.props.people.map((person, index) => (
+                    <Card
+                        person={person}
+                        key={index}
+                        index={index}
+                        onFlip={this.props.onFlip}
+                        canFlip={true}
+                    />
+                ))}
             </div>
-        )
+        );
     }
 }
