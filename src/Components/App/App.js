@@ -1,31 +1,31 @@
-import './App.css';
-import {Card} from "../Card/Card"
-import React from 'react';
-import {CardList} from "../CardList/CardList"
-import {board} from "../../board"
+import "./App.css";
+import { Card } from "../Card/Card";
+import React, { useState } from "react";
+import { CardList } from "../CardList/CardList";
+import { board as defaultBoard } from "../../Data/dragRaceBoard";
+import { Menu } from "../Menu/Menu";
+import { GameBoard } from "../GameBoard/GameBoard";
 
-export class App extends React.Component {
+export function App() {
+    const [board, setBoard] = useState(defaultBoard.board);
+    const [showBoard, setShowBoard] = useState(true);
 
-  constructor(props){
-    super(props)
+    const changeToBoard = () => setShowBoard(true);
+    const changeToMenu = () => setShowBoard(false);
 
-    this.state = {people: ["one", "two", "three", "four", "five", "six",
-    "one", "two", "three", "four", "five", "six",
-    "one", "two", "three", "four", "five", "six",
-    "one", "two", "three", "four", "five", "six"],
-    board: board.board}
+    let currentScreen;
 
-  }
+    if (showBoard) {
+        currentScreen = <GameBoard people={board} />;
+    } else {
+        currentScreen = <Menu />;
+    }
 
-  render() {
     return (
-    <div className="App">
-      <header className="App-header">
-        <CardList people={this.state.board} />
-      </header>
-    </div>
-  );
-}
+        <div className="App">
+            <header className="App-header">{currentScreen}</header>
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,9 @@
+.playerCardAreaDesktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.playerCardLabel {
+    margin-block-end: 0;
+}

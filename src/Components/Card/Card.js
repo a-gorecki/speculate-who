@@ -25,7 +25,7 @@ export class Card extends React.Component{
                     <div className="cardFace front">
                         <div className="frontContainer">
                             <img className="characterImg" src={this.props.person.imgSrc} alt={this.props.person.name} />
-                            <h1 className="characterName" >{this.props.person.name}</h1>
+                            <div className="characterName" ><strong>{this.props.person.name}</strong></div>
                         </div>
                         
                     </div>

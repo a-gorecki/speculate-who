@@ -5,25 +5,7 @@
     margin: 10px;
 }
 
-@media screen and (max-width: 710px) {
-    .scene{
-        height: 100px;
-        width: 75px;
-        perspective: 600px;
-        margin: 10px;
-    }
-    
-}
 
-@media screen and (max-width: 330px) {
-    .scene{
-        height: 80px;
-        width: 60px;
-        perspective: 600px;
-        margin: 10px;
-    }
-    
-}
 
 .card {
     position: relative;
@@ -101,7 +83,7 @@
     bottom: 0;
     left: 0;
     margin: 0px;
-    font-size: 1.5em;
+    font-size: 1em;
     color: rgba(13, 14, 75, 0.938);
     background-color: aliceblue;
     padding: 3px 10px 3px 10px;
@@ -112,4 +94,38 @@
     /* not sure which class needs this specified again, hence the repetition */
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+@media screen and (max-width: 710px) {
+    .scene{
+        height: 100px;
+        width: 75px;
+        perspective: 600px;
+        margin: 10px;
+    }
+
+    .characterName{
+        font-size: 0.5em;
+        max-width: 60%;
+    }
+    
+}
+
+@media screen and (max-width: 330px) {
+    .scene{
+        height: 80px;
+        width: 60px;
+        perspective: 600px;
+        margin: 10px;
+    }
+
+    .characterName{
+        font-size: 0.5em;
+        max-width: 60%;
+    }
+    
 }

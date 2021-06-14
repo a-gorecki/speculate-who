@@ -9,9 +9,10 @@
     margin: auto;
     padding-top: 40px;
     padding-bottom: 40px;
+    padding-right: 40px;
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1200px) {
     .cardList {
         display: grid;
         grid-template-columns: 150px 150px 150px 150px 150px;

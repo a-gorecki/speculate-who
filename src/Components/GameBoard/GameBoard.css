@@ -1,0 +1,12 @@
+.gameAreaDesktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.playerCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
