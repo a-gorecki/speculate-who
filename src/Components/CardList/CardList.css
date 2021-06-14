@@ -6,7 +6,7 @@
     grid-row-gap: 10px;
     justify-items: stretch;
     align-items: stretch;
-    margin: auto;
+    /* margin: auto; */
     padding-top: 40px;
     padding-bottom: 40px;
     padding-right: 40px;
@@ -33,18 +33,20 @@
         grid-row-gap: 10px;
         justify-items: stretch;
         align-items: stretch;
+        margin-bottom: 4rem;
     }
 }
 
 @media screen and (max-width: 710px) {
     .cardList {
         display: grid;
-        grid-template-columns: 75px 75px 75px 75px;
-        grid-template-rows: 100px 100px 100px 100px 100px 100px 100px;
+        grid-template-columns: 102px 102px 102px;
+        grid-template-rows: 144px 144px 144px 144px 144px 144px 144px;
         grid-column-gap: 10px;
         grid-row-gap: 10px;
         justify-items: stretch;
         align-items: stretch;
+        margin-bottom: 4rem;
     }
 }
 
@@ -57,5 +59,6 @@
         grid-row-gap: 10px;
         justify-items: stretch;
         align-items: stretch;
+        margin-bottom: 5rem;
     }
 }

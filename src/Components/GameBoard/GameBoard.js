@@ -3,9 +3,15 @@ import { CardList } from "../CardList/CardList";
 import "./GameBoard.css";
 import { Card } from "../Card/Card";
 import { PlayerCardArea } from "../PlayerCardArea/PlayerCardArea";
+import { BottomSheet } from "react-spring-bottom-sheet";
+import "react-spring-bottom-sheet/dist/style.css";
 
 export function GameBoard({ people }) {
     const [width, setWidth] = useState(window.innerWidth);
+    const [btmSheetOpen, setBtmSheetOpen] = useState(false);
+    const [currentCardIndex, setCurrentCardIndex] = useState(
+        Math.floor(Math.random() * people.length)
+    );
 
     useEffect(() => {
         window.addEventListener("resize", () => setWidth(window.innerWidth));
@@ -16,9 +22,32 @@ export function GameBoard({ people }) {
             );
     });
 
+    const handleCardReset = () => {
+        setCurrentCardIndex(Math.floor(Math.random() * people.length));
+    };
+
     const getLayout = (width) => {
         if (width < 1000) {
-            return <h1>Mobile layout</h1>;
+            return (
+                <div>
+                    <button
+                        onClick={() => setBtmSheetOpen(true)}
+                        className="showSheetButton"
+                    >
+                        Show your card
+                    </button>
+                    <CardList people={people} />
+                    <BottomSheet
+                        open={btmSheetOpen}
+                        onDismiss={() => setBtmSheetOpen(false)}
+                    >
+                        <PlayerCardArea
+                            person={people[currentCardIndex]}
+                            onCardReset={handleCardReset}
+                        />
+                    </BottomSheet>
+                </div>
+            );
         }
         return (
             <div className="gameAreaDesktop">
@@ -26,7 +55,10 @@ export function GameBoard({ people }) {
                     <CardList people={people} />
                 </div>
                 <div className="playerCardContainer">
-                    <PlayerCardArea person={people[0]} />
+                    <PlayerCardArea
+                        person={people[currentCardIndex]}
+                        onCardReset={handleCardReset}
+                    />
                 </div>
             </div>
         );
