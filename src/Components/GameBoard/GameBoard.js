@@ -5,7 +5,12 @@ import { PlayerCardArea } from "../PlayerCardArea/PlayerCardArea";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
-export function GameBoard({ people, onFlip, handleBoardReset }) {
+export function GameBoard({
+    people,
+    onFlip,
+    handleBoardReset,
+    handleReturnToMenu,
+}) {
     const [width, setWidth] = useState(window.innerWidth);
     const [btmSheetOpen, setBtmSheetOpen] = useState(false);
     const [currentCardIndex, setCurrentCardIndex] = useState(
@@ -43,6 +48,7 @@ export function GameBoard({ people, onFlip, handleBoardReset }) {
                             person={people[currentCardIndex]}
                             onCardReset={handleCardReset}
                             onBoardReset={handleBoardReset}
+                            onReturnToMenu={handleReturnToMenu}
                         />
                     </BottomSheet>
                 </div>
@@ -58,6 +64,7 @@ export function GameBoard({ people, onFlip, handleBoardReset }) {
                         person={people[currentCardIndex]}
                         onCardReset={handleCardReset}
                         onBoardReset={handleBoardReset}
+                        onReturnToMenu={handleReturnToMenu}
                     />
                 </div>
             </div>

@@ -1,15 +1,12 @@
 import "./App.css";
 import React, { useState } from "react";
-import { board as defaultBoard } from "../../Data/dragRaceBoard";
 import { Menu } from "../Menu/Menu";
 import { GameBoard } from "../GameBoard/GameBoard";
+import { boards } from "../../Data/boards";
 
 export function App() {
-    const [board, setBoard] = useState(defaultBoard.board);
-    const [showBoard, setShowBoard] = useState(true);
-
-    const changeToBoard = () => setShowBoard(true);
-    const changeToMenu = () => setShowBoard(false);
+    const [board, setBoard] = useState(boards[0].board);
+    const [showBoard, setShowBoard] = useState(false);
 
     let currentScreen;
 
@@ -28,21 +25,33 @@ export function App() {
         setBoard(newArray);
     };
 
+    const handleBoardSelection = (index) => {
+        setBoard(boards[index].board);
+        setShowBoard(true);
+    };
+
+    const handleReturnToMenu = () => {
+        setShowBoard(false);
+    };
+
     if (showBoard) {
         currentScreen = (
             <GameBoard
                 people={board}
                 onFlip={handleFlip}
                 handleBoardReset={handleBoardReset}
+                handleReturnToMenu={handleReturnToMenu}
             />
         );
     } else {
-        currentScreen = <Menu />;
+        currentScreen = (
+            <Menu handleBoardSelection={handleBoardSelection} boards={boards} />
+        );
     }
 
     return (
         <div className="App">
-            <header className="App-header">{currentScreen}</header>
+            <header className="App-body">{currentScreen}</header>
         </div>
     );
 }

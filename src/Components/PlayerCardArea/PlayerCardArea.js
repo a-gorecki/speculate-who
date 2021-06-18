@@ -2,15 +2,20 @@ import React from "react";
 import "./PlayerCardArea.css";
 import { Card } from "../Card/Card";
 
-export function PlayerCardArea({ person, onCardReset, onBoardReset }) {
+export function PlayerCardArea({
+    person,
+    onCardReset,
+    onBoardReset,
+    onReturnToMenu,
+}) {
     return (
         <div className="playerCardAreaDesktop">
             <button
-                onClick={() => {}}
+                onClick={onReturnToMenu}
                 className="optionButton"
                 id="boardMenuButton"
             >
-                Select Board
+                Back to Menu
             </button>
             <h2 className="playerCardLabel">Your card:</h2>
             <Card person={person} className="playerCard" canFlip={false} />
@@ -19,14 +24,14 @@ export function PlayerCardArea({ person, onCardReset, onBoardReset }) {
                 className="optionButton"
                 id="cardResetButton"
             >
-                New card
+                New Card
             </button>
             <button
                 onClick={onBoardReset}
                 className="optionButton"
                 id="boardResetButton"
             >
-                Reset board
+                Reset Board
             </button>
         </div>
     );
