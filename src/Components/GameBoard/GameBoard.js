@@ -50,25 +50,29 @@ export function GameBoard({ boards }) {
     const getLayout = (width) => {
         if (width < 1000) {
             return (
-                <div>
-                    <button
-                        onClick={() => setBtmSheetOpen(true)}
-                        className="showSheetButton"
-                    >
-                        Show your card
-                    </button>
-                    <CardList people={board} onFlip={handleFlip} />
-                    <BottomSheet
-                        open={btmSheetOpen}
-                        onDismiss={() => setBtmSheetOpen(false)}
-                    >
-                        <PlayerCardArea
-                            person={board[currentCardIndex]}
-                            onCardReset={handleCardReset}
-                            onBoardReset={handleBoardReset}
-                            onReturnToMenu={() => history.push("/")}
-                        />
-                    </BottomSheet>
+                <div className="gameAreaMobile">
+                    <div className="mobileContentWrapper">
+                        <button
+                            onClick={() => setBtmSheetOpen(true)}
+                            className="showSheetButton"
+                        >
+                            Show your card
+                        </button>
+
+                        <CardList people={board} onFlip={handleFlip} />
+
+                        <BottomSheet
+                            open={btmSheetOpen}
+                            onDismiss={() => setBtmSheetOpen(false)}
+                        >
+                            <PlayerCardArea
+                                person={board[currentCardIndex]}
+                                onCardReset={handleCardReset}
+                                onBoardReset={handleBoardReset}
+                                onReturnToMenu={() => history.push("/")}
+                            />
+                        </BottomSheet>
+                    </div>
                 </div>
             );
         }
