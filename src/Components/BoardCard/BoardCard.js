@@ -3,7 +3,6 @@ import "./BoardCard.css";
 
 export const BoardCard = ({ board, onSelect, index }) => {
     const handleSelect = () => {
-        console.log("Selected index " + index);
         onSelect(index);
     };
 

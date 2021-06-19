@@ -1,0 +1,23 @@
+.optionButton {
+    width: 100%;
+    margin-top: 10px;
+    border-width: 0;
+    transition-duration: 0.4s;
+    height: 3rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.optionButton:hover {
+    box-shadow: 0 12px 160px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px -15px rgba(0, 0, 0, 0.19);
+}
+
+#boardMenuButton {
+    background: rgba(13, 14, 75, 0.938);
+}
+
+#boardMenuButton:hover {
+    background: rgba(46, 46, 102, 0.938);
+}

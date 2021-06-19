@@ -2,8 +2,15 @@ import React from "react";
 import { BoardList } from "../BoardList/BoardList";
 import logo from "../../logo.png";
 import "./Menu.css";
+import { useHistory } from "react-router-dom";
 
-export const Menu = ({ handleBoardSelection, boards }) => {
+export const Menu = ({ boards }) => {
+    let history = useHistory();
+
+    const handleBoardSelection = (index) => {
+        history.push("/board/" + index);
+    };
+
     return (
         <div className="menu">
             <div className="logoContainer">

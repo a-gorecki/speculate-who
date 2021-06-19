@@ -12,7 +12,6 @@ export class Card extends React.Component {
     }
 
     handleFlip() {
-        console.log(this.props.key);
         this.props.onFlip(this.props.index);
     }
 

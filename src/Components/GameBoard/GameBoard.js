@@ -4,17 +4,17 @@ import "./GameBoard.css";
 import { PlayerCardArea } from "../PlayerCardArea/PlayerCardArea";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
+import { useHistory, useParams } from "react-router";
 
-export function GameBoard({
-    people,
-    onFlip,
-    handleBoardReset,
-    handleReturnToMenu,
-}) {
+export function GameBoard({ boards }) {
+    let { boardId } = useParams();
+    let history = useHistory();
+
+    const [board, setBoard] = useState(boards[boardId].board);
     const [width, setWidth] = useState(window.innerWidth);
     const [btmSheetOpen, setBtmSheetOpen] = useState(false);
     const [currentCardIndex, setCurrentCardIndex] = useState(
-        Math.floor(Math.random() * people.length)
+        Math.floor(Math.random() * board.length)
     );
 
     useEffect(() => {
@@ -26,8 +26,26 @@ export function GameBoard({
             );
     });
 
+    useEffect(() => {
+        setBoard(boards[boardId].board);
+    }, [boardId, boards]);
+
+    const handleFlip = (index) => {
+        let newArray = [...board];
+        newArray[index].flipped = !!newArray[index].flipped ? false : true;
+
+        setBoard(newArray);
+    };
+
+    const handleBoardReset = () => {
+        let newArray = [...board];
+        newArray.forEach((person) => (person.flipped = false));
+
+        setBoard(newArray);
+    };
+
     const handleCardReset = () =>
-        setCurrentCardIndex(Math.floor(Math.random() * people.length));
+        setCurrentCardIndex(Math.floor(Math.random() * board.length));
 
     const getLayout = (width) => {
         if (width < 1000) {
@@ -39,16 +57,16 @@ export function GameBoard({
                     >
                         Show your card
                     </button>
-                    <CardList people={people} onFlip={onFlip} />
+                    <CardList people={board} onFlip={handleFlip} />
                     <BottomSheet
                         open={btmSheetOpen}
                         onDismiss={() => setBtmSheetOpen(false)}
                     >
                         <PlayerCardArea
-                            person={people[currentCardIndex]}
+                            person={board[currentCardIndex]}
                             onCardReset={handleCardReset}
                             onBoardReset={handleBoardReset}
-                            onReturnToMenu={handleReturnToMenu}
+                            onReturnToMenu={() => history.push("/")}
                         />
                     </BottomSheet>
                 </div>
@@ -57,14 +75,14 @@ export function GameBoard({
         return (
             <div className="gameAreaDesktop">
                 <div>
-                    <CardList people={people} onFlip={onFlip} />
+                    <CardList people={board} onFlip={handleFlip} />
                 </div>
                 <div className="playerCardContainer">
                     <PlayerCardArea
-                        person={people[currentCardIndex]}
+                        person={board[currentCardIndex]}
                         onCardReset={handleCardReset}
                         onBoardReset={handleBoardReset}
-                        onReturnToMenu={handleReturnToMenu}
+                        onReturnToMenu={() => history.push("/")}
                     />
                 </div>
             </div>
