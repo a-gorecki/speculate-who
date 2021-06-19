@@ -14,19 +14,20 @@
 
 @media screen and (max-width: 1200px) {
     .cardList {
-        display: grid;
+        display: inline-grid;
         grid-template-columns: 150px 150px 150px 150px 150px;
         grid-template-rows: 200px 200px 200px 200px 200px;
         grid-column-gap: 10px;
         grid-row-gap: 10px;
         justify-items: stretch;
-        align-items: stretch;
+        align-items: center;
+        margin-bottom: 4rem;
     }
 }
 
 @media screen and (max-width: 870px) {
     .cardList {
-        display: grid;
+        display: inline-grid;
         grid-template-columns: 150px 150px 150px 150px;
         grid-template-rows: 200px 200px 200px 200px 200px 200px;
         grid-column-gap: 10px;
@@ -39,7 +40,7 @@
 
 @media screen and (max-width: 710px) {
     .cardList {
-        display: grid;
+        display: inline-grid;
         grid-template-columns: 102px 102px 102px;
         grid-template-rows: 144px 144px 144px 144px 144px 144px 144px;
         grid-column-gap: 10px;
@@ -52,7 +53,7 @@
 
 @media screen and (max-width: 330px) {
     .cardList {
-        display: grid;
+        display: inline-grid;
         grid-template-columns: 60px 60px 60px 60px;
         grid-template-rows: 80px 80px 80px 80px 80px 80px 80px;
         grid-column-gap: 10px;
