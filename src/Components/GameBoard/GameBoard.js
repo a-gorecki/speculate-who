@@ -69,7 +69,10 @@ export function GameBoard({ boards }) {
                                 person={board[currentCardIndex]}
                                 onCardReset={handleCardReset}
                                 onBoardReset={handleBoardReset}
-                                onReturnToMenu={() => history.push("/")}
+                                onReturnToMenu={() => {
+                                    setBtmSheetOpen(false);
+                                    history.push("/");
+                                }}
                             />
                         </BottomSheet>
                     </div>
