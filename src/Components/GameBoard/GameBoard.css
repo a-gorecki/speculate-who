@@ -3,6 +3,21 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-grow: 1;
+    width: 100vw;
+}
+
+.gameAreaMobile {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobileContentWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .playerCardContainer {
